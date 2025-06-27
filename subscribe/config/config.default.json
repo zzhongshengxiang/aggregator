@@ -2,13 +2,13 @@
     "domains": [
         {
             "name": "My_Proxy",
-            "sub": [https://gist.githubusercontent.com/zzhongshengxiang/9957f23da42ac734976b47fb2496630a/raw/clash.yaml],
+            "sub": [],
             "domain": "",
             "enable": true,
             "rename": "",
             "include": "",
             "exclude": "",
-            "push_to": [],
+            "push_to": [https://gist.githubusercontent.com/zzhongshengxiang/9957f23da42ac734976b47fb2496630a/raw/clash.yaml],
             "ignorede": true,
             "liveness": true,
             "rate": 2.5,
