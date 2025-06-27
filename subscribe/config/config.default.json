@@ -1,71 +1,191 @@
-domains:
-  - name: "My_Personal_Proxy"
-    sub: 
-      - "https://your-private-sub.com/link"  # 替换为您的私人订阅链接
-    enable: true
-    rename: "PROXY_{country}_{index}"  # 节点重命名规则
-    include: "HK|SG|JP|US"             # 包含这些地区节点
-    exclude: "过期|测试"                # 排除测试节点
-    push_to: ["personal-clash"]        # 推送到Clash配置组
-    liveness: true                    # 启用节点存活检测
-    rate: 200                         # 限速200Mbps
-    count: 30                         # 最多保留30个优质节点
-
-crawl:
-  enable: true
-  threshold: 5                        # 至少5个有效节点
-  persist:
-    subs: "crawledsubs"               # 原始订阅存储
-    proxies: "crawledproxies"         # 节点信息存储
-  
-  # Telegram频道爬取
-  telegram:
-    enable: true
-    pages: 3                          # 爬取3页历史消息
-    users:
-      freev2ray:                      # 替换为实际频道用户名
-        include: "vmess|vless|trojan"
-        exclude: "付费|会员"
-        push_to: ["crawledsubs"]
-  
-  # GitHub爬取配置
-  github:
-    enable: true
-    pages: 2
-    exclude: "backup|archive"
-    spams: ["expired", "fake"]
-    push_to: ["crawledsubs"]
-  
-  # 自定义页面爬取
-  pages:
-    - enable: true
-      url: "https://free-node-list.com"  # 替换为您的节点列表页
-      include: "://"
-      push_to: ["crawledsubs"]
-
-groups:
-  personal:
-    emoji: true                      # 添加地区emoji标识
-    list: true                       # 输出节点列表
-    targets:
-      clash: "personal-clash"        # Clash配置名称
-    
-    # 节点名规范化
-    regularize:
-      enable: true
-      locate: true                   # 添加地区信息
-      bits: 1                        # 速率保留1位小数
-
-storage:
-  engine: "gist"                     # 使用Gist存储
-  base: "https://api.github.com"     # GitHub API地址
-  domain: "https://gist.githubusercontent.com"
-  items:
-    personal-clash:                  # 对应groups中的targets
-      username: "your_github_user"   # 替换为GitHub用户名
-      fileid: "9957f23da42ac734976b47fb2496630a/clash.yaml"  # Gist文件路径
-    
-    # 爬取内容存储 (可选)
-    crawledsubs:
-      username: "your_github_user"
-      fileid: "9957f23da42ac734976b47fb2496630a/raw_subs.txt"
+{
+    "domains": [
+        {
+            "name": "My_Proxy",
+            "sub": [https://gist.githubusercontent.com/zzhongshengxiang/9957f23da42ac734976b47fb2496630a/raw/clash.yaml],
+            "domain": "",
+            "enable": true,
+            "rename": "",
+            "include": "",
+            "exclude": "",
+            "push_to": [],
+            "ignorede": true,
+            "liveness": true,
+            "rate": 2.5,
+            "count": 2,
+            "coupon": "",
+            "secure": false,
+            "renew": {
+                "account": [
+                    {
+                        "email": "",
+                        "passwd": "",
+                        "ticket": {
+                            "enable": true,
+                            "autoreset": false,
+                            "subject": "",
+                            "message": "",
+                            "level": 1
+                        }
+                    }
+                ],
+                "plan_id": 3,
+                "package": "",
+                "method": 1,
+                "coupon_code": "",
+                "chatgpt": {
+                    "enable": true,
+                    "regex": "",
+                    "operate": "IN"
+                }
+            }
+        }
+    ],
+    "crawl": {
+        "enable": true,
+        "exclude": "过期|测试",
+        "threshold": 5,
+        "singlelink": true,
+        "persist": {
+            "subs": "crawledsubs",
+            "proxies": "crawledproxies"
+        },
+        "config": {
+            "rename": "",
+            "include": "",
+            "exclude": "",
+            "xxxxxxx": ""
+        },
+        "telegram": {
+            "enable": true,
+            "pages": 5,
+            "exclude": "",
+            "users": {
+                "channel": {
+                    "include": "vmess|vless|trojan",
+                    "exclude": "",
+                    "config": {
+                        "rename": "",
+                        "xxxxxx": ""
+                    },
+                    "push_to": []
+                }
+            }
+        },
+        "google": {
+            "enable": false,
+            "exclude": "",
+            "notinurl": [],
+            "push_to": []
+        },
+        "github": {
+            "enable": true,
+            "pages": 2,
+            "push_to": [],
+            "exclude": "",
+            "spams": []
+        },
+        "twitter": {
+            "enable": true,
+            "users": {
+                "username": {
+                    "enable": true,
+                    "num": 30,
+                    "include": "",
+                    "exclude": "",
+                    "config": {
+                        "rename": "",
+                        "xxxxxx": ""
+                    },
+                    "push_to": []
+                }
+            }
+        },
+        "repositories": [
+            {
+                "enable": false,
+                "username": "",
+                "repo_name": "",
+                "commits": 3,
+                "exclude": "",
+                "push_to": []
+            }
+        ],
+        "pages": [
+            {
+                "enable": true,
+                "url": "",
+                "include": "",
+                "exclude": "",
+                "config": {
+                    "rename": ""
+                },
+                "push_to": []
+            }
+        ],
+        "scripts": [
+            {
+                "enable": false,
+                "script": "file#function",
+                "params": {
+                    "persist": {
+                        "fileid": ""
+                    },
+                    "any": "xxx",
+                    "config": {
+                        "enable": true,
+                        "liveness": true,
+                        "exclude": "",
+                        "rename": "",
+                        "push_to": []
+                    }
+                }
+            }
+        ]
+    },
+    "groups": {
+        "xxx": {
+            "emoji": true,
+            "list": true,
+            "targets": {
+                "clash": "xxx-clash",
+                "singbox": "xxx-singbox",
+                "v2ray": "xxx-v2ray"
+            },
+            "regularize": {
+                "enable": false,
+                "locate": true,
+                "bits": 2
+            }
+        }
+    },
+    "storage": {
+        "engine": "gist",
+        "base": "https://api.github.com",
+        "domain": "https://gist.githubusercontent.com",
+        "items": {
+            "personal-clash": {
+                "username": "zzhongshengxiang",
+                "folderid": "",
+                "fileid": "9957f23da42ac734976b47fb2496630a/raw/clash.yaml"
+            },
+            "xxx-singbox": {
+                "fileid": ""
+            },
+            "xxx-v2ray": {
+                "username": "",
+                "fileid": ""
+            },
+            "crawledsubs": {
+                "username": "",
+                "folderid": "",
+                "fileid": ""
+            },
+            "crawledproxies": {
+                "username": "",
+                "folderid": "",
+                "fileid": ""
+            }
+        }
+    }
+}
