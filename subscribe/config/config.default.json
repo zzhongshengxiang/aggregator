@@ -8,7 +8,7 @@
             "rename": "",
             "include": "",
             "exclude": "",
-            "push_to": [https://gist.githubusercontent.com/zzhongshengxiang/9957f23da42ac734976b47fb2496630a/raw/clash.yaml],
+            "push_to": [],
             "ignorede": true,
             "liveness": true,
             "rate": 2.5,
@@ -148,7 +148,7 @@
             "emoji": true,
             "list": true,
             "targets": {
-                "clash": "xxx-clash",
+                "clash": "personal-clash",
                 "singbox": "xxx-singbox",
                 "v2ray": "xxx-v2ray"
             },
@@ -167,7 +167,7 @@
             "personal-clash": {
                 "username": "zzhongshengxiang",
                 "folderid": "",
-                "fileid": "9957f23da42ac734976b47fb2496630a/raw/clash.yaml"
+                "fileid": "9957f23da42ac734976b47fb2496630a"
             },
             "xxx-singbox": {
                 "fileid": ""
@@ -179,12 +179,12 @@
             "crawledsubs": {
                 "username": "",
                 "folderid": "",
-                "fileid": ""
+                "fileid": "9957f23da42ac734976b47fb2496630a"
             },
             "crawledproxies": {
                 "username": "",
                 "folderid": "",
-                "fileid": ""
+                "fileid": "9957f23da42ac734976b47fb2496630a"
             }
         }
     }
